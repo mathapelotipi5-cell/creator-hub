@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix creator-hub/client run dev"
+  }
+}

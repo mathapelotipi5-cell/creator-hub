@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: creator-hub-api
+    runtime: node
+    rootDir: creator-hub/server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGO_URI
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
