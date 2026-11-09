@@ -44,9 +44,9 @@ To publish the bundled sample photos as interactive Library posts, run `npm run 
 
 ## Deployment
 
-The client can be deployed to Vercel with the project root set to `creator-hub/client`. Set `VITE_API_URL` to the deployed API origin without `/api` or a trailing slash, and set `VITE_USE_MOCK=false`. The included Vercel rewrite supports client-side routes.
+The client can be deployed to Vercel with the project root set to `creator-hub/client`. The repository-root `vercel.env` contains the production `VITE_API_URL` and `VITE_USE_MOCK=false` settings; add these variables to the Vercel project's environment settings and redeploy. Vercel does not read this custom-named file automatically. The included Vercel rewrite supports client-side routes.
 
-The API can be deployed to Render using the workspace-root `render.yaml` Blueprint. Set `MONGO_URI` to the Atlas URI and `CLIENT_ORIGIN` to the exact deployed frontend origin. Render generates `JWT_SECRET`; set `CREATOR_EMAIL` and `CREATOR_PASSWORD` securely, then run `npm run seed:creator` once from the server directory using the deployed environment. Add the deployed API health URL `/api/health` to deployment checks.
+The API can be deployed to Render using the workspace-root `render.yaml` Blueprint. The repository-root `render.env` holds the server settings; enter them in the Render service's environment settings (Render does not read this custom-named file automatically). It excludes `PORT` so Render can provide its assigned port. The `MONGO_URI` and `JWT_SECRET` values are sensitive and must remain private. Set `CREATOR_EMAIL` and `CREATOR_PASSWORD` securely, then run `npm run seed:creator` once from the server directory using the deployed environment. Add the deployed API health URL `/api/health` to deployment checks.
 
 After deploying both services, configure the frontend API URL, redeploy it, create the initial creator account, and test login and content operations using the public frontend URL. Hosting accounts, Atlas network access, production secrets, and the final public URLs must be supplied/configured by the deployer.
 

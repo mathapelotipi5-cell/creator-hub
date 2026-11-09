@@ -13,6 +13,8 @@ build/
 **/.env.*
 !.env.example
 !**/.env.example
+/vercel.env
+/render.env
 
 *.log
 .DS_Store
